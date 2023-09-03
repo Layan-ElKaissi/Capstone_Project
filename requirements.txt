@@ -16,8 +16,8 @@ joblib==1.2.0
 linearmodels==5.1
 
 
-scikit-learn-intelex==2021.20220215.132722
-
+scikit-learn==1.0.2
+py4j==0.10.9.5
 
 pandas==1.4.2
 
