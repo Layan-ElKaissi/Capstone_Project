@@ -148,7 +148,7 @@ if menu_label == 'Home':
 """, unsafe_allow_html=True)
      
     with col2:         
-     with open("/Users/apple/Desktop/agrieco.json", "r") as f:
+     with open("agrieco.json", "r") as f:
             lottie_json = json.load(f)
             st_lottie(lottie_json, height=300, width=500)
             
@@ -157,7 +157,7 @@ if menu_label == 'Home':
     
     col1, col2 = st.columns(2)
     with col1:
-        with open("/Users/apple/Desktop/statistics.json", "r") as f:
+        with open("statistics.json", "r") as f:
                lottie_json = json.load(f)
                st_lottie(lottie_json, height=300, width=500)
         st.write("#### Exploratory Data Analysis") 
@@ -166,7 +166,7 @@ if menu_label == 'Home':
 - Statistical Analysis""")
         
     with col2:
-        with open("/Users/apple/Desktop/EDA.json", "r") as f:
+        with open("EDA.json", "r") as f:
                lottie_json = json.load(f)
                st_lottie(lottie_json, height=300, width=500)
         st.write("#### Forecasting & Predictive Models")  
@@ -187,7 +187,7 @@ if menu_label == "Overview":
     
     
     with col2:
-        image = Image.open("/Users/apple/Desktop/hunger.png")
+        image = Image.open("hunger.png")
         st.image(image, width=600, use_column_width=True)
         
         
@@ -197,22 +197,22 @@ if menu_label == "Overview":
         st.write("")
         st.write("")
         st.write("")
-        with open("/Users/apple/Desktop/soup.json", "r") as f:
+        with open("soup.json", "r") as f:
                lottie_json = json.load(f)
                st_lottie(lottie_json, height=150, width=150)
     
     with col1:
-        with open("/Users/apple/Desktop/water.json", "r") as f:
+        with open("water.json", "r") as f:
                lottie_json = json.load(f)
                st_lottie(lottie_json, height=150, width=150)  
         
     with col1:
-        with open("/Users/apple/Desktop/agriculture.json", "r") as f:
+        with open("agriculture.json", "r") as f:
                lottie_json = json.load(f)
                st_lottie(lottie_json, height=150, width=150)   
         
     with col1:
-        with open("/Users/apple/Desktop/economy.json", "r") as f:
+        with open("economy.json", "r") as f:
                lottie_json = json.load(f)
                st_lottie(lottie_json, height=150, width=150) 
                
@@ -300,7 +300,7 @@ if menu_label == "Overview":
     
 
 if menu_label == "Statistics":
-  df = pd.read_csv('/Users/apple/Desktop/Capstone_df.csv')
+  df = pd.read_csv('Capstone_df.csv')
   st.title("Global Overview")
   viz1 = st.columns((0.3, 2, 0.3))
   with viz1[1]: 
@@ -502,7 +502,7 @@ if menu_label == "Statistics":
      
       # Define a function to create the correlation heatmap
      def create_correlation_heatmap():
-         correlation_matrix = pd.read_csv('/Users/apple/Desktop/Corr_MATRIX.csv')
+         correlation_matrix = pd.read_csv('Corr_MATRIX.csv')
          # Create the heatmap using Plotly Express
          fig = go.Figure(data=go.Heatmap(
                          z=correlation_matrix.values,
@@ -730,10 +730,10 @@ if menu_label == "Statistics":
     
 if menu_label == "Crop Index Model":
 
-       df = pd.read_csv('/Users/apple/Desktop/Crop_Model_df.csv')
+       df = pd.read_csv('Crop_Model_df.csv')
        
       # Load the saved model
-       rf_model_crop = joblib.load('/Users/apple/Desktop/rf_model_CROP.joblib')
+       rf_model_crop = joblib.load('rf_model_CROP.joblib')
        
        feature_importances = rf_model_crop.feature_importances_
             
@@ -789,7 +789,7 @@ if menu_label == "Crop Index Model":
         # Create a horizontal bar chart for feature importances
        if st.button('Feature Importance Scores'):
         
-           feature_importance_df = pd.read_csv('/Users/apple/Desktop/selected_feature_importances_crop.csv')
+           feature_importance_df = pd.read_csv('selected_feature_importances_crop.csv')
            feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=True)
 
            fig_feature_importance = px.bar(feature_importance_df, x='Importance', y='Feature', orientation='h',
@@ -814,10 +814,10 @@ if menu_label == "Crop Index Model":
            st.write(f"Root Mean Squared Error: {root_mean_squared_error:.2f}")
       
 if menu_label == "Water Stress Model":      
-       df = pd.read_csv('/Users/apple/Desktop/Water_Model_df.csv')
+       df = pd.read_csv('Water_Model_df.csv')
      # Load the saved model
-       rf_model_waterstress = joblib.load('/Users/apple/Desktop/new_rf_model_water.joblib')
-       scaler = joblib.load('/Users/apple/Desktop/scaler_model_water.joblib')
+       rf_model_waterstress = joblib.load('new_rf_model_water.joblib')
+       scaler = joblib.load('scaler_model_water.joblib')
 # Streamlit app
        st.title('Water Stress Prediction')
        st.sidebar.header('Adjust Input Features')
@@ -890,7 +890,7 @@ if menu_label == "Water Stress Model":
        
        if st.button('Feature Importance Scores'):
       
-         feature_importance_df = pd.read_csv('/Users/apple/Desktop/selected_feature_importances_water.csv')
+         feature_importance_df = pd.read_csv('selected_feature_importances_water.csv')
          feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=True)
 
          fig_feature_importance = px.bar(feature_importance_df, x='Importance', y='Feature', orientation='h',
@@ -916,9 +916,9 @@ if menu_label == "Water Stress Model":
 
     
 if menu_label == "Agri Model":   
-    df = pd.read_csv('/Users/apple/Desktop/Agri_df.csv')
-    rf_model_agri = joblib.load('/Users/apple/Desktop/new_rf_model_agri.joblib')
-    sfm_model = joblib.load('/Users/apple/Desktop/new_sfm_model_agri.joblib')
+    df = pd.read_csv('Agri_df.csv')
+    rf_model_agri = joblib.load('new_rf_model_agri.joblib')
+    
     
     feature_importances = rf_model_agri.feature_importances_
     
@@ -972,7 +972,7 @@ if menu_label == "Agri Model":
     # Create a horizontal bar chart for feature importances
     if st.button('Feature Importance Scores'):
     
-       feature_importance_df = pd.read_csv('/Users/apple/Desktop/selected_feature_importances_agri.csv')
+       feature_importance_df = pd.read_csv('selected_feature_importances_agri.csv')
        feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=True)
 
        fig_feature_importance = px.bar(feature_importance_df, x='Importance', y='Feature', orientation='h',
@@ -1012,7 +1012,7 @@ if menu_label == "Forecast":
 """, unsafe_allow_html=True)   
    with col2:  
     
-    with open("/Users/apple/Desktop/analytics.json", "r") as f:
+    with open("analytics.json", "r") as f:
            lottie_json = json.load(f)
            st_lottie(lottie_json, height=400, width=600)
    with col1:
@@ -1023,7 +1023,7 @@ if menu_label == "Forecast":
     st.write("")
     st.write("")
     
-    df = pd.read_csv('/Users/apple/Desktop/New_Forecasting.csv')
+    df = pd.read_csv('New_Forecasting.csv')
     
    # Create a selectbox to choose the country
     countries_list = df['Country'].unique()
